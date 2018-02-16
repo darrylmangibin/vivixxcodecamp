@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Point of Sale</title>
+    <link rel="stylesheet" href="bootswatch.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+    
+<div class="bignavbar"><header><nav class="navbar navbar-expand-lg navbar-dark bg-dark">MENUBOX</nav></header>
+<div class="row">
+    
+    <div class="container-fluid"></div> 
+    <div class="col-md-8">
+        <div id="menubox" style="overflow:scroll; height:800px;">
+        <header></header>
+            <div class="row col-md-12" style="margin: 5px auto;">
+                <div id="food1" class="borders paddingz"><button class ="buttontest" onclick="addItem1()"><img src="img/burger2.jpg"></button>    </div>
+                <div id="food2" class="borders paddingz"><button class ="buttontest" onclick="addItem2()"><img src="img/taco.jpg"></button></div>
+                <div id="food3" class="borders paddingz"><button class ="buttontest" onclick="addItem3()"><img src="img/hotdog2.jpg"></button></div>
+                <div id="food4" class="borders paddingz"><button class ="buttontest" onclick="addItem4()"><img src="img/icecream.jpg"></button></div>
+                <div id="food5" class="borders paddingz"><button  class ="buttontest"  onclick="addItem5()"><img src="img/spaghetti.jpg"></button></div>
+                <!-- ADDING NEW FOOD -->
+                <div id="food6" class="borders paddingz"><button class ="buttontest" onclick="addItem6()"><img src="img/burger2.jpg"></button>    </div>
+                <div id="food7" class="borders paddingz"><button class ="buttontest" onclick="addItem7()"><img src="img/taco.jpg"></button></div>
+                <div id="food8" class="borders paddingz"><button class ="buttontest" onclick="addItem8()"><img src="img/hotdog2.jpg"></button></div>
+                <div id="food9" class="borders paddingz"><button class ="buttontest" onclick="addItem9()"><img src="img/icecream.jpg"></button></div>
+                <div id="food10" class="borders paddingz"><button  class ="buttontest"  onclick="addItem10()"><img src="img/spaghetti.jpg"></button></div>
+                <div id="food11" class="borders paddingz"><button class ="buttontest" onclick="addItem11()"><img src="img/burger2.jpg"></button>  </div>
+                <div id="food12" class="borders paddingz"><button class ="buttontest" onclick="addItem12()"><img src="img/taco.jpg"></button></div>
+                <div id="food13" class="borders paddingz"><button class ="buttontest" onclick="addItem13()"><img src="img/hotdog2.jpg"></button></div>
+                <div id="food14" class="borders paddingz"><button class ="buttontest" onclick="addItem14()"><img src="img/icecream.jpg"></button></div>
+                <div id="food15" class="borders paddingz"><button  class ="buttontest"  onclick="addItem15()"><img src="img/spaghetti.jpg"></button>  </div>
+                <div id="food16" class="borders paddingz"><button class ="buttontest" onclick="addItem16()"><img src="img/burger2.jpg"></button>  </div>
+                <div id="food17" class="borders paddingz"><button class ="buttontest" onclick="addItem17()"><img src="img/taco.jpg"></button></div>
+                <div id="food18" class="borders paddingz"><button class ="buttontest" onclick="addItem18()"><img src="img/hotdog2.jpg"></button></div>
+                
+            </div>
+        </div>
+    
+    </div>
+    <div class="col-md-4">
+        <div id="salebox" style="overflow:scroll; height:800px;">
+            <header></header>
+            <div class="saleform">
+                <form id="order"></form>
+            </div>
+        </div>
+        <div class="totalbox2">
+        <input id="total" type="text" value="0">TOTAL<br><br>
+            <button class="btn btn-danger" onclick="clearBox('cart_item')"> CLEAR </button>
+            <button  class="btn btn-success" id="myBtn" >Checkout</button>
+</div>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+ <!-- Modal content -->
+ <div class="modal-content">
+   <span class="close">&times;</span>
+   <h1 id="mowdals">YOUR ORDER HAS BEEN COMPLETED</h1>
+ </div>
+</div>
+        </div>
+    </div>
+<!--TOTAL BOX HERE-->
+<!-- <div class="totalbox"> -->
+            <!-- <input id="total" type="text" value="0">TOTAL<br><br>
+            <button class="btn btn-danger" onclick="clearBox('cart_item')"> CLEAR </button>
+</div>
+ -->
+<script>
+    var total = 0;
+    var counter=0;
+    var BURGERS = 
+        [
+        {
+            "id": "1",
+            "name": "BURGER",
+            "price": "59",
+            
+        },
+        {
+            "id": "2",
+            "name": "TACO",
+            "price": "99",
+            
+        },
+        {
+            "id": "3",
+            "name": "HOTDOG",
+            "price": "70",
+            
+        },
+        {
+            "id": "4",
+            "name": "ICE CREAM",
+            "price": "100",
+            
+        },
+        {
+            "id": "5",
+            "name": "SPAGHETTI",
+            "price": "150",
+            
+        },
+        {
+            "id": "6",
+            "name": "SPAGHETTI",
+            "price": "150",
+            
+        },
+        {
+            "id": "7",
+            "name": "SPAGHETTI",
+            "price": "150",
+            
+        },
+        {
+            "id": "8",
+            "name": "SPAGHETTI",
+            "price": "150",
+            
+        },
+        {
+            "id": "9",
+            "name": "spaghetti",
+            "price": "150",
+            
+        },
+        {
+            "id": "10",
+            "name": "SPAGHETTI",
+            "price": "150",
+            
+        },
+        {
+            "id": "11",
+            "name": "SPAGHETTI",
+            "price": "150",
+            
+        },
+        {
+            "id": "12",
+            "name": "SPAGHETTI",
+            "price": "150",
+            
+        },
+        {
+            "id": "13",
+            "name": "SPAGHETTI",
+            "price": "150",
+            
+        },
+        {
+            "id": "14",
+            "name": "SPAGHETTI",
+            "price": "150",
+            
+        },
+        {
+            "id": "15",
+            "name": "SPAGHETTI",
+            "price": "150",
+            
+        },
+        {
+            "id": "16",
+            "name": "SPAGHETTI",
+            "price": "150",
+            
+        },
+        {
+            "id": "17",
+            "name": "SPAGHETTI",
+            "price": "150",
+            
+        },
+        {
+            "id": "18",
+            "name": "SPAGHETTI",
+            "price": "150",
+            
+        }]
+    BURGERS[0].name
+    function calctotal(price){
+        console.log(price);
+        console.log(total);
+        total = parseInt(total);
+        price = parseInt(price);
+        total += price;
+    
+        document.getElementById('total').value = total;
+        // counter = parseInt(counter)+1;
+    }
+    function addItem1(){
+        var itemzz = document.getElementById('food1').innerHTML;
+        document.getElementById('order').innerHTML += BURGERS[0].name + "  --------  " + BURGERS[0].price + '<br>' ;
+        calctotal(BURGERS[0].price);
+    }
+        function addItem2(){
+        var itemzz = document.getElementById('food2').innerHTML;
+        
+        document.getElementById('order').innerHTML += BURGERS[1].name + "  ------------  " + BURGERS[1].price + '<br>';
+        calctotal(BURGERS[1].price);
+    }
+        function addItem3(){
+        var itemzz = document.getElementById('food3').innerHTML;
+        
+        document.getElementById('order').innerHTML += BURGERS[2].name + "  -------  " + BURGERS[2].price + '<br>';
+        calctotal(BURGERS[2].price);
+    }
+        function addItem4(){
+        var itemzz = document.getElementById('food4').innerHTML;
+        
+        document.getElementById('order').innerHTML += BURGERS[3].name + "  ----   " + BURGERS[3].price + '<br>';
+        calctotal(BURGERS[3].price);
+    }
+        function addItem5(){
+        var itemzz = document.getElementById('food5').innerHTML;
+        
+        document.getElementById('order').innerHTML += BURGERS[4].name + "  ---   " + BURGERS[4].price + '<br>';
+        calctotal(BURGERS[4].price);
+    }
+// additional food 6-18 
+function addItem6(){
+        var itemzz = document.getElementById('food6').innerHTML;
+        
+        document.getElementById('order').innerHTML += BURGERS[5].name + "  ---   " + BURGERS[4].price + '<br>';
+        calctotal(BURGERS[5].price);
+    }
+function addItem7(){
+        var itemzz = document.getElementById('food7').innerHTML;
+        
+        document.getElementById('order').innerHTML += BURGERS[6].name + "  ---   " + BURGERS[4].price + '<br>';
+        calctotal(BURGERS[6].price);
+    }
+function addItem8(){
+        var itemzz = document.getElementById('food8').innerHTML;
+        
+        document.getElementById('order').innerHTML += BURGERS[7].name + "  ---   " + BURGERS[4].price + '<br>';
+        calctotal(BURGERS[7].price);
+    }
+function addItem9(){
+        var itemzz = document.getElementById('food9').innerHTML;
+        
+        document.getElementById('order').innerHTML += BURGERS[8].name + "  ---   " + BURGERS[4].price + '<br>';
+        calctotal(BURGERS[8].price);
+    }
+function addItem10(){
+        var itemzz = document.getElementById('food10').innerHTML;
+        
+        document.getElementById('order').innerHTML += BURGERS[9].name + "  ---   " + BURGERS[4].price + '<br>';
+        calctotal(BURGERS[9].price);
+    }
+function addItem11(){
+        var itemzz = document.getElementById('food11').innerHTML;
+        
+        document.getElementById('order').innerHTML += BURGERS[10].name + "  ---   " + BURGERS[4].price + '<br>';
+        calctotal(BURGERS[10].price);
+}
+function addItem12(){
+        var itemzz = document.getElementById('food12').innerHTML;
+        
+        document.getElementById('order').innerHTML += BURGERS[11].name + "  ---   " + BURGERS[4].price + '<br>';
+        calctotal(BURGERS[11].price);
+}
+function addItem13(){
+        var itemzz = document.getElementById('food13').innerHTML;
+        
+        document.getElementById('order').innerHTML += BURGERS[12].name + "  ---   " + BURGERS[4].price + '<br>';
+        calctotal(BURGERS[12].price);
+}
+function addItem14(){
+        var itemzz = document.getElementById('food14').innerHTML;
+        
+        document.getElementById('order').innerHTML += BURGERS[13].name + "  ---   " + BURGERS[4].price + '<br>';
+        calctotal(BURGERS[13].price);
+}
+function addItem15(){
+        var itemzz = document.getElementById('food15').innerHTML;
+        
+        document.getElementById('order').innerHTML += BURGERS[14].name + "  ---   " + BURGERS[4].price + '<br>';
+        calctotal(BURGERS[14].price);
+}
+function addItem16(){
+        var itemzz = document.getElementById('food16').innerHTML;
+        
+        document.getElementById('order').innerHTML += BURGERS[15].name + "  ---   " + BURGERS[4].price + '<br>';
+        calctotal(BURGERS[15].price);
+}
+function addItem17(){
+        var itemzz = document.getElementById('food17').innerHTML;
+        
+        document.getElementById('order').innerHTML += BURGERS[16].name + "  ---   " + BURGERS[4].price + '<br>';
+        calctotal(BURGERS[16].price);
+}
+function addItem17(){
+        var itemzz = document.getElementById('food18').innerHTML;
+        
+        document.getElementById('order').innerHTML += BURGERS[17].name + "  ---   " + BURGERS[4].price + '<br>';
+        calctotal(BURGERS[17].price);
+}
+// end of additional
+    function clearBox(order){
+    document.getElementById('order').innerHTML = "";
+    document.getElementById('total').value = "0";
+    total = 0;
+    // counter=0;
+}
+    // Get the modal
+var modal = document.getElementById('myModal');
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+   modal.style.display = "block";
+   // window.alert('JC');   
+}
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+   modal.style.display = "none";
+     document.getElementById('order').innerHTML = "";
+    document.getElementById('total').value = "0";
+    total = 0;
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+   if (event.target == modal) {
+       modal.style.display = "none";
+   }
+}
+</script>
+</body>
+</html>

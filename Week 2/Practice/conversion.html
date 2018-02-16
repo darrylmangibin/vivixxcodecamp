@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type = "text/javascript">
+
+
+function convert(degree) {
+    if (degree == "C") {
+        F = Number(document.getElementById("c").value 
+        	* 9 / 5 + 32) || 0;  
+
+        document.getElementById("f").value = Math.round(F);
+    } else	{
+        C = Number((document.getElementById("f").value 
+        	-32) * 5 / 9) || 0;
+        document.getElementById("c").value = Math.round(C);
+    }
+}
+</script>
+</head>
+
+<body>
+
+<input id="c" onkeyup="convert('C')"> Degrees Celsius<br>
+	equals<br> 
+
+<input id="f" onkeyup="convert('F')"> Degrees Fahrenheit 
+
+</body>
+
+</html>

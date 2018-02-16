@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <p>Please Vote</p>
+
+<form action="/action_page.php">
+
+  <input type="radio" name="vote" value="YES">Yes<br>
+  <input type="radio" name="vote" value="NO">No<br>
+  <br>
+  <input type="button" onclick="myFunction()" value="Next">
+  <br><br>
+  <input type="text" id="result" size="30">
+  <input type="button" value="Submit" onclick="">
+
+</form>
+<div id="tally">
+  
+</div>
+<script>
+function myFunction() {
+    var vote = document.forms[0];
+    var txt = "";
+    var i;
+    for (i = 0; i < vote.length; i++) {
+        if (vote[i].checked) {
+            txt = txt + vote[i].value + " ";
+        }
+    }
+    document.getElementById("result").value = "You have voted: " + txt;
+}
+
+
+</script>
+
+</body>
+</html>

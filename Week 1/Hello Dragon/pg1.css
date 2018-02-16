@@ -1,0 +1,14 @@
+h1 {
+
+	font-size: 44px;
+	color: black;
+}
+p {
+	font-size:22px;
+	color:black;
+}
+body {background-color: green;}
+
+img {width:25%;
+	 height:auto;
+	 position:center;}
